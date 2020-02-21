@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule} from '@angular/forms'
 
+import {EmployeeService} from './employee.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloworldComponent } from './helloworld/helloworld.component';
@@ -33,7 +35,7 @@ import { EmployeedetailComponent } from './employeedetail/employeedetail.compone
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
