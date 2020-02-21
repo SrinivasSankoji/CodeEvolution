@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms'
+import { FormsModule} from '@angular/forms';
+import { HttpClientModule } from "@angular/common/http";
 
 import {EmployeeService} from './employee.service';
 
@@ -16,6 +17,7 @@ import { from } from 'rxjs';
 import { ParentchildComponent } from './parentchild/parentchild.component';
 import { EmployeelistComponent } from './employeelist/employeelist.component';
 import { EmployeedetailComponent } from './employeedetail/employeedetail.component';
+import { ObservableComponent } from './observable/observable.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,15 @@ import { EmployeedetailComponent } from './employeedetail/employeedetail.compone
     TwowaybindingComponent,
     ParentchildComponent,
     EmployeelistComponent,
-    EmployeedetailComponent
+    EmployeedetailComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+    
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
