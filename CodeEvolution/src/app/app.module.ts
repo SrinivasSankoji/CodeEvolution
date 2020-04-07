@@ -5,7 +5,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import {EmployeeService} from './employee.service';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloworldComponent } from './helloworld/helloworld.component';
 import { InterpolationComponent } from './interpolation/interpolation.component';
@@ -18,6 +18,8 @@ import { ParentchildComponent } from './parentchild/parentchild.component';
 import { EmployeelistComponent } from './employeelist/employeelist.component';
 import { EmployeedetailComponent } from './employeedetail/employeedetail.component';
 import { ObservableComponent } from './observable/observable.component';
+import { RoutingComponent } from './routing/routing.component';
+import { DepartmentlistComponent } from './departmentlist/departmentlist.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import { ObservableComponent } from './observable/observable.component';
     TemplatereferenceComponent,
     TwowaybindingComponent,
     ParentchildComponent,
-    EmployeelistComponent,
     EmployeedetailComponent,
-    ObservableComponent
+    ObservableComponent,
+    RoutingComponent,
+    routingComponents
   ],
   imports: [
     BrowserModule,
