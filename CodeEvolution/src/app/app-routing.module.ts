@@ -2,12 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DepartmentlistComponent } from './departmentlist/departmentlist.component';
 import { EmployeelistComponent } from './employeelist/employeelist.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 
 
 const routes: Routes = [
-
+  {path:'',redirectTo :'/departments',pathMatch:'full'},
   {path:'departments',component:DepartmentlistComponent},
-  {path:'employees',component:EmployeelistComponent}
+  {path:'departments/:id',component:DepartmentDetailComponent},
+  {path:'employees',component:EmployeelistComponent},
+  {path:"**",component:PagenotfoundComponent}
 ];
 
 
@@ -18,4 +22,7 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponents=[DepartmentlistComponent,EmployeelistComponent];
+export const routingComponents=[DepartmentlistComponent,
+                                EmployeelistComponent,
+                                PagenotfoundComponent,
+                                DepartmentDetailComponent];

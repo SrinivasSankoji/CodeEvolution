@@ -20,6 +20,8 @@ import { EmployeedetailComponent } from './employeedetail/employeedetail.compone
 import { ObservableComponent } from './observable/observable.component';
 import { RoutingComponent } from './routing/routing.component';
 import { DepartmentlistComponent } from './departmentlist/departmentlist.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { DepartmentlistComponent } from './departmentlist/departmentlist.compone
     EmployeedetailComponent,
     ObservableComponent,
     RoutingComponent,
-    routingComponents
+    routingComponents,
+    PagenotfoundComponent,
+    DepartmentDetailComponent
   ],
   imports: [
     BrowserModule,
