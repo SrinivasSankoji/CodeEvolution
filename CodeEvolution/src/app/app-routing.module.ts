@@ -7,9 +7,9 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 
 
 const routes: Routes = [
-  {path:'',redirectTo :'/departments',pathMatch:'full'},
-  {path:'departments',component:DepartmentlistComponent},
-  {path:'departments/:id',component:DepartmentDetailComponent},
+  {path:'',redirectTo :'/departmentlist',pathMatch:'full'},
+  {path:'departmentlist',component:DepartmentlistComponent},
+  {path:'departmentdetail/:id',component:DepartmentDetailComponent},
   {path:'employees',component:EmployeelistComponent},
   {path:"**",component:PagenotfoundComponent}
 ];

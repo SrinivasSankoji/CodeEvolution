@@ -7,6 +7,11 @@ import {ActivatedRoute,Router,ParamMap}  from '@angular/router';
   <h3>Selected Department is {{departmentId}}<h3>
   <a (click)="goPrevious()">Previous</a>
   <a (click)="goNext()">Next</a>
+
+  <div>
+    <button (clcik)="goToDepartment()">Back</button>
+  </div>
+
   ` ,
   styleUrls: ['./department-detail.component.css']
 })
@@ -30,12 +35,20 @@ export class DepartmentDetailComponent implements OnInit {
   public goPrevious()
   {
       let previousId=this.departmentId-1;
-      this.router.navigate(['/departments',previousId]);
+      this.router.navigate(['/departmentdetail',previousId]);
   }
   public goNext()
   {
     let nextId=this.departmentId+1;
-    this.router.navigate(['/departments',nextId]);
+    this.router.navigate(['/departmentdetail',nextId]);
+  }
+
+  public goToDepartment()
+  {
+    let selectedId = this.departmentId ? this.departmentId : null;
+    //this.router.navigate(['/departmentlist', {id: selectedId}]);
+    this.router.navigate(['../',{id: selectedId}],{relativeTo:this.activatedRoute});
+    //Go Back One Segment in the URl
   }
 
 }
