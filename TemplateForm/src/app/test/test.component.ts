@@ -35,9 +35,9 @@ export class TestComponent implements OnInit {
 
   public onSubmit()
   {
-    this.enrollmentService.enroll(this.userModel)
+     this.enrollmentService.enroll(this.userModel)
     .subscribe(data => console.log('Success!',data),
-               error => console.log('Error!',error)
-    );
+                error => console.log('Error!',error)
+     );
   }
 }
