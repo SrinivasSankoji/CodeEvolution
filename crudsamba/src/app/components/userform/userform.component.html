@@ -1,17 +1,20 @@
 <div class="container">
-<form (ngSubmit)="processUser()">
+<form #userForm="ngForm" (ngSubmit)="processUser()" novalidate>
     <div class="form-group">
         <label>Id</label>
         <input type="text" name="id" class="form-control" [(ngModel)]="user.id">
     </div>
     <div class="form-group">
         <label>First Name</label>
-        <input type="text" name="id" class="form-control" [(ngModel)]="user.fname">
+        <input type="text" required name="id" #fname="ngModel" [class.is-invalid]="fname.invalid && fname.touched"
+        class="form-control" [(ngModel)]="user.fname">
+        <small class="text-danger" [class.d-none]="fname.valid || fname.untouched">First Name is Required</small>
     </div>
     <div class="form-group">
         <label>Last Name</label>
-        <input type="text" name="id" class="form-control" [(ngModel)]="user.lname">
+        <input type="text" required name="id" #lname="ngModel" [class.is-invalid]="lname.invalid && lname.touched"
+        class="form-control" [(ngModel)]="user.lname">
     </div>
-    <button class="btn btn-primary">Save User</button>
+    <button [disabled]="userForm.form.invalid" class="btn btn-primary">Save User</button>
 </form>
 </div>
