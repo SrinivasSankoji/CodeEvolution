@@ -7,7 +7,9 @@
           <div class="form-group">
             <label for="name">First Name</label>
             <input type="text" id="name" class="form-control" name="name" placeholder="Your name"
+            [class.is-invalid]="name.touched && name.invalid"
             required #name="ngModel" [(ngModel)]="model.name" >
+            <small [class.d-none]="name.valid && name.touched">Name is Required</small>
           </div>
           <!-- Email -->
           <div class="form-group">
@@ -15,7 +17,6 @@
             <input type="text"  id="email" class="form-control" name="email" placeholder="Your email"
                    #email="ngModel" [(ngModel)]="model.email"/>
           </div>
-  
           <!-- Feedback -->
           <div class="form-group">
             <label for="feedback">Feedback</label>
@@ -24,8 +25,7 @@
               #feedback="ngModel" [(ngModel)]="model.feedback">
             </textarea>
           </div>
-  
-          <button type="submit" class="btn btn-info pull-right">
+          <button type="submit" [disabled]="feedbackForm.invalid" class="btn btn-info pull-right">
             <i class="fa fa-envelope-o"></i>
             <span> Send Feedback</span>
           </button>

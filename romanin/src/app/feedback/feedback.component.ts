@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NoteserviceService } from '../service/noteservice.service';
 
 @Component({
   selector: 'app-feedback',
@@ -15,14 +16,14 @@ export class FeedbackComponent implements OnInit
     email:'',
     feedback:''
   };
-  constructor(private _http:HttpClient) { }
+  constructor(private _notesService:NoteserviceService) { }
 
   ngOnInit() {
   }
 
   submitFeedback():void
   {
-    this._http.post(this.url,this.model).subscribe(
+    this._notesService.postFeedback(this.model).subscribe(
       res => {
         location.reload();
       },
@@ -32,9 +33,8 @@ export class FeedbackComponent implements OnInit
     );
     console.log(this.model.name);
   }
-
 }
-
+ 
 export interface FeedbackViewModel
 {
   name:string,
