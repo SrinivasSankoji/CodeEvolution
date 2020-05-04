@@ -47,22 +47,32 @@
         </div>
       <!-- Notebooks Menu End-->
       <!-- Notes Panel Start -->
-        <!-- <div class="col-md-9">
+         <div class="col-md-9">
             <div class="row">
             <div class="col-md-12">
                 <h3 *ngIf="selectedNotebook != null">{{selectedNotebook.name}}</h3>
-                <h3 *ngIf="selectedNotebook == null">All notes</h3>
+                <h3 *ngIf="selectedNotebook == null">All Notes</h3>
                 <p *ngIf="this.notes.length === 0">There are no notes to display in this notebook :(</p>
             </div>
             </div>
             <div class="row">
-            <app-note *ngFor="let n of notes | noteTextFilter:searchText"
-                        [note]="n"
-                        (noteUpdated)="updateNote($event)"
-                        (noteDeleted)="deleteNote($event)">
-            </app-note>
+              <!-- Notes List -->
+            <div *ngFor="let note of notes" class="card bg-warning" style="border: 4px solid white;">
+            <div class="card-body" style="padding:8px;margin-top: 8px;">
+              <!-- Title -->
+              <input type="text" [(ngModel)]="note.title" class="input-label-lg" maxlength="18" style="width: 80%"
+              (change)="updateNote(note)"/>
+              <a (click)="deleteNote(note)" class="pull-right text-danger">
+                <i class="fa fa-trash-o"></i>
+              </a>
+              <!-- Text Area -->
+              <textarea class="input-label" [(ngModel)]="note.text" (change)="updateNote(note)"
+              style="width: 100" rows="6"></textarea>
+              <strong clas="text-info" style="font-size: small"></strong>
             </div>
-        </div> -->
+            </div>
+            </div>
+        </div> 
          <!-- Notes Panel End -->
     </div>
     <!-- Note content End-->
