@@ -1,1 +1,18 @@
-<p>employeelist works!</p>
+<html>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{employee.id}}</td>
+                <td>{{employee.name}}</td>
+                <td>{{employee.salary}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</html>

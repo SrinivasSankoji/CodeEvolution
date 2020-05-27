@@ -3,16 +3,7 @@ import {ActivatedRoute,Router,ParamMap}  from '@angular/router';
 
 @Component({
   selector: 'app-department-detail',
-  template:`
-  <h3>Selected Department is {{departmentId}}<h3>
-  <a (click)="goPrevious()">Previous</a>
-  <a (click)="goNext()">Next</a>
-
-  <div>
-    <button (clcik)="goToDepartment()">Back</button>
-  </div>
-
-  ` ,
+  templateUrl:'department-detail.component.html' ,
   styleUrls: ['./department-detail.component.css']
 })
 export class DepartmentDetailComponent implements OnInit {
@@ -24,20 +15,22 @@ export class DepartmentDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    /**Route Parameter to read the Parameter from the URL */
     //let id=parseInt(this.activatedRoute.snapshot.paramMap.get('id'));
     //this.departmentId=id;
+    /** Param Map Observable to read the Route Parameter from the URL */
     this.activatedRoute.paramMap.subscribe((params :ParamMap) => {
       let id=parseInt(params.get('id'));
       this.departmentId=id;
     });
   }
 
-  public goPrevious()
+  goPrevious()
   {
       let previousId=this.departmentId-1;
       this.router.navigate(['/departmentdetail',previousId]);
   }
-  public goNext()
+  goNext()
   {
     let nextId=this.departmentId+1;
     this.router.navigate(['/departmentdetail',nextId]);

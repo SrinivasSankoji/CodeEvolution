@@ -3,19 +3,10 @@ import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'employeelist',
-  template:`
-    <div>
-    <h2>{{name}}</h2>
-    <ul *ngFor ="let employee of employees" >
-      <li>{{employee.name}}</li>
-    </ul>
-    </div>
-  `,
+  templateUrl:'./employeelist.component.html',
   styleUrls: ['./employeelist.component.css']
 })
 export class EmployeelistComponent implements OnInit {
-
-  public name="Employee List";
 
   public employees: any= [];
 
@@ -26,11 +17,8 @@ export class EmployeelistComponent implements OnInit {
      this.employees =this._employeeService.getEmployees();
   }
 
-  /**public employees=[
-
-    {"id":22,"name":"srinivas","salary":22000.00},
-    {"id":27,"name":"Nandini","salary":27000.00},
-    {"id":23,"name":"Bhaumik","salary":23000.00}
-  ]**/
-
+  public getEmployees()
+  {
+    return this.employees;
+  }
 }

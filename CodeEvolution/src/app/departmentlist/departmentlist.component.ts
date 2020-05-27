@@ -3,20 +3,12 @@ import {Router,ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-departmentlist',
-  template:`
-  <h3>Department List</h3>
-  <ul class="items">
-  <li (click)=onSelect(department) [class.selected]="isSelected(department)" *ngFor="let department of departments">
-  <span class="badge">{{department.id}}</span>{{department.name}}
-  </li>
-  </ul>
-
-  `,
+  templateUrl:'./departmentlist.component.html',
   styleUrls: ['./departmentlist.component.css']
 })
 export class DepartmentlistComponent implements OnInit {
 
-  public selectedId;
+  public selectedId:any;
 
   departments = [
     {"id":"1","name":"Angular"},
@@ -30,19 +22,23 @@ export class DepartmentlistComponent implements OnInit {
     private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    /** To Read the Route Parameter 
+    we make use of activatedRoute using paramMap */
     this.activatedRoute.paramMap.subscribe((params:ParamMap) => {
       let id=parseInt(params.get('id'));
       this.selectedId=id;
     });
   }
 
-  onSelect(department)
+  onSelect(department:any)
   {
-      //this.router.navigate(['/departmentdetail',department.id]);
-      this.router.navigate([department.id],{relativeTo:this.activatedRoute});
+      /** Route Parameter Example */ 
+      this.router.navigate(['/departmentdetail',department.id]);
+      /** ParamMap Observable Example */
+      //this.router.navigate([department.id],{relativeTo:this.activatedRoute});
   }
 
-  isSelected(department)
+  isSelected(department:any)
   {
     return department.id === this.selectedId;
   }

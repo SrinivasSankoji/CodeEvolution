@@ -24,11 +24,4 @@ export class EmployeedetailComponent implements OnInit {
   ngOnInit() {
     this.employees=this._employeeservice.getEmployees();
   }
-
-  /**public employees =[
-    {"id":22,"name":"srinivas","salary":22000.00},
-    {"id":27,"name":"Nandini","salary":27000.00},
-    {"id":23,"name":"Bhaumik","salary":23000.00}
-  ];**/
-
 }

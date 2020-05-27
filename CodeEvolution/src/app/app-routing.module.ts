@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'',redirectTo :'/departmentlist',pathMatch:'full'},
   {path:'departmentlist',component:DepartmentlistComponent},
   {path:'departmentdetail/:id',component:DepartmentDetailComponent},
-  {path:'employees',component:EmployeelistComponent},
+  {path:'employeelist',component:EmployeelistComponent},
   {path:"**",component:PagenotfoundComponent}
 ];
 
